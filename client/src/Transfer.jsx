@@ -19,8 +19,7 @@ function Transfer({ address, setBalance, privateKey }) {
     // generate hash of msg
     const msghash = toHex(keccak256(msgarray));
     const signature= await secp.sign(msghash,privateKey,{recovered: true});
-    const sender = toHex(secp.recoverPublicKey(msghash,signature[0],signature[1]));
-    console.log(signature);
+
 
     try {
       const {
